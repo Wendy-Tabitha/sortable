@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Organizer</title>
+    <link rel="stylesheet" href="sortable.css">
+    <script type="module">
+        import { loadData } from './sortable.js'
+        loadData()
+    </script>
+</head>
+
+<body>
+    
+    <h1>Superhero Organizer</h1>
+    <div class="search-bar">
+        <label for="search">Search by name:</label>
+        <input type="text" id="search" placeholder="Enter name">
+    </div>
+    <div class="pagination">
+        <label for="pageSize">Results per page:</label>
+        <select id="pageSize">
+            <option value="10">10</option>
+            <option value="20" selected>20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="all">All</option>
+        </select>
+    </div>
+    <table id="superhero-table">
+        <thead>
+            <tr>
+                <th data-sort="name">Icon</th>
+                <th data-sort="name">Name</th>
+                <th data-sort="fullName">Full Name</th>
+                <th data-sort="powerstats">Powerstats</th>
+                <th data-sort="race">Race</th>
+                <th data-sort="gender">Gender</th>
+                <th data-sort="height">Height</th>
+                <th data-sort="weight">Weight</th>
+                <th data-sort="placeOfBirth">Place of Birth</th>
+                <th data-sort="alignment">Alignment</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+    <button>Previous</button>
+    <span id="page">1 of 10</span>
+    <button>Next</button>
+    
+</body>
+</html>
