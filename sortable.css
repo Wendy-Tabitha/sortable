@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.search-bar,
+.pagination {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.search-bar label,
+.pagination label {
+    margin-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /* Adjust the width as needed */
+}
+
+th, td {
+    border: 1px solid #ccc;
+    /* Set border color and style */
+    padding: 8px;
+    /* Adjust padding as needed */
+}
+
+th {
+    background-color: #f2f2f2;
+    /* Set header background color */
+    text-align: center;
+    padding-right: 20px;
+}
+
+td {
+    text-align: center;
+    /* Align data cells to center */
+}
