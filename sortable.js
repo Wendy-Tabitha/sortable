@@ -32,7 +32,27 @@ function createPage(json) {
 
         console.log('length:', matchingJson.length, " size:", size)
 
-        page.textContent = currentPage.toString() + ' of ' + (Math.ceil(matchingJson.length/size))
+        const lastPage = Math.ceil(matchingJson.length/size)
+
+        page.textContent = currentPage.toString() + ' of ' + lastPage
+        if (currentPage === 1) {
+            document.getElementById('previous').disabled = true
+        } else {
+            document.getElementById('previous').disabled = false
+        }
+        
+        if (currentPage === lastPage) {
+            document.getElementById('next').disabled = true
+        } else {
+            document.getElementById('next').disabled = false
+        }
+
+        if (currentPage > lastPage || currentPage < 1) {
+            currentPage = lastPage
+            setTimeout(() => {
+                updatePage(tableJson)
+            }, 1);
+        }
     
         updateTable(tableJson)
     }
@@ -52,6 +72,20 @@ function createPage(json) {
         // updateTable(tableJson)
         updatePage(tableJson)
 
+    })
+
+    const previousbuttonElement = document.getElementById('previous')
+    previousbuttonElement.addEventListener('click', (e) => {
+
+        currentPage--
+        updatePage(matchingJson)
+    })
+
+    const nextButtonElement = document.getElementById('next')
+    nextButtonElement.addEventListener('click', (e) => {
+        
+        currentPage++
+        updatePage(matchingJson)
     })
 
     const pageSizeElement = document.getElementById('pageSize')
